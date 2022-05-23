@@ -18,7 +18,6 @@ import com.example.myapplication.databinding.FragmentMovieListBinding
 class MovieListFragment : Fragment() {
     lateinit var binding: FragmentMovieListBinding
     val viewModel : MovieListViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,6 +37,10 @@ class MovieListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val adapter = MovieAdapter()
+        binding.searchIcon.setOnClickListener {
+            var action = MovieListFragmentDirections.actionMovieListFragmentToSearchResultFragment(binding.searchBox.text.toString())
+            findNavController().navigate(action)
+        }
         viewModel.movieList.observe(viewLifecycleOwner) {
             binding.movieRecyclerView.adapter = adapter
             adapter.submitList(it)

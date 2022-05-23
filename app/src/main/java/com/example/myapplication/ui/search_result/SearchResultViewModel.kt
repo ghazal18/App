@@ -1,5 +1,6 @@
 package com.example.myapplication.ui.search_result
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,10 +11,11 @@ import kotlinx.coroutines.launch
 class SearchResultViewModel: ViewModel(){
     val searchedList =  MutableLiveData<List<Movie>>()
 
-    fun searchMovieList(query:String){
+    fun searchMovieList(query:String):LiveData<List<Movie>>{
         viewModelScope.launch {
             val list = Container.movieRepository.searchMovie(query)
             searchedList.value = list
         }
+        return searchedList
     }
 }
