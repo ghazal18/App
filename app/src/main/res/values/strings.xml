@@ -4,4 +4,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_here">Search Here</string>
     <string name="movie_list">Movie List:</string>
+    <string name="up_coming_movie_list">UpComing Movie List:</string>
 </resources>
