@@ -46,6 +46,12 @@ interface ApiService {
         @Path(value = "movie_id") movieId: Int
     ): MovieDetail
 
+    @GET("movie/upcoming")
+    suspend fun upComingMovies(
+        @Query("page")page :Int = 1,
+        @Query("api_key") apiKey :String = api_key
+    ): MovieListApiResult
+
 
 }
 
