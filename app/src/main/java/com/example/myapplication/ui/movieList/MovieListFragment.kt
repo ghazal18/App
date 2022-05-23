@@ -37,7 +37,7 @@ class MovieListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val adapter = MovieAdaptor()
+        val adapter = MovieAdapter()
         viewModel.movieList.observe(viewLifecycleOwner) {
             binding.movieRecyclerView.adapter = adapter
             adapter.submitList(it)

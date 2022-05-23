@@ -29,7 +29,7 @@ interface ApiService {
 
     @GET("movie/popular")
     suspend fun getMovies(
-        @Query("page")page :Int = 1,
+//        @Query("page")page :Int = 1,
         @Query("api_key") apiKey :String = api_key
     ): MovieListApiResult
 
@@ -39,6 +39,7 @@ interface ApiService {
         @Query("api_key") apiKey :String = api_key,
         @Query("query") query: String
     ):SearchMovie
+
     @GET("movie/{movie_id}")
     suspend fun MovieDetail(
         @Query("api_key") apiKey :String = api_key,

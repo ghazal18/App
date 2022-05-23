@@ -15,8 +15,8 @@ import com.example.myapplication.model.Movie
 typealias WordClickHandler = (Movie) -> Unit
 
 
-class MovieAdaptor() :
-    ListAdapter<Movie, MovieAdaptor.ItemHolder>(MovieDiffCallback) {
+class MovieAdapter() :
+    ListAdapter<Movie, MovieAdapter.ItemHolder>(MovieDiffCallback) {
 
     class ItemHolder(val binding: MovieListItemViewBinding) : RecyclerView.ViewHolder(binding.root) {
 
