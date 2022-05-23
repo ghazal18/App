@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:textSize="16dp"
+        android:textSize="14dp"
         android:text="@{movie.title + ':'+ ' '+movie.overview}"/>
 
 

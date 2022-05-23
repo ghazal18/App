@@ -41,7 +41,7 @@ class MovieListFragment : Fragment() {
         viewModel.movieList.observe(viewLifecycleOwner) {
             binding.movieRecyclerView.adapter = adapter
             adapter.submitList(it)
-            Glide.with(this).load(poster_path + it[0].poster_path).into(binding.moviePhoto)
+//            Glide.with(this).load(poster_path + it[0].poster_path).into(binding.moviePhoto)
         }
     }
 
