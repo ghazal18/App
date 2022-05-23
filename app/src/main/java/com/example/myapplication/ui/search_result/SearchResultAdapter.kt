@@ -7,10 +7,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.databinding.MovieListItemViewBinding
 import com.example.myapplication.databinding.SearchResultItemBinding
 import com.example.myapplication.model.Movie
-import com.example.myapplication.ui.movieList.MovieDiffCallback
 
 class SearchResultAdapter: ListAdapter<Movie, SearchResultAdapter.ItemHolder>(SearchedMovieDiffCallback) {
 

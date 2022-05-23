@@ -1,6 +1,6 @@
 package com.example.myapplication.model
 
-data class UpcomingMovieList(
+data class UpComingMovieList(
     val dates: Dates,
     val page: Int,
     val results: List< UpComingResult>,

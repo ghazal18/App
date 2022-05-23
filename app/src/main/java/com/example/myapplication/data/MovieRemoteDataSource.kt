@@ -3,6 +3,7 @@ package com.example.myapplication.data
 import com.example.myapplication.data.network.MovieApi
 import com.example.myapplication.model.Movie
 import com.example.myapplication.model.MovieDetail
+import com.example.myapplication.model.UpComingResult
 
 class MovieRemoteDataSource {
 
@@ -14,6 +15,9 @@ class MovieRemoteDataSource {
     }
     suspend fun MovieDetail(id:Int):MovieDetail{
         return MovieApi.retrofitService.MovieDetail(movieId = id)
+    }
+    suspend fun upComingMovies():List<UpComingResult>{
+        return MovieApi.retrofitService.upComingMovies().results
     }
 
 }

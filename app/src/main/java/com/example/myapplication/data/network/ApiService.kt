@@ -1,9 +1,6 @@
 package com.example.myapplication.data.network
 
-import com.example.myapplication.model.Movie
-import com.example.myapplication.model.MovieDetail
-import com.example.myapplication.model.MovieListApiResult
-import com.example.myapplication.model.SearchMovie
+import com.example.myapplication.model.*
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -50,7 +47,7 @@ interface ApiService {
     suspend fun upComingMovies(
         @Query("page")page :Int = 1,
         @Query("api_key") apiKey :String = api_key
-    ): MovieListApiResult
+    ): UpComingMovieList
 
 
 }

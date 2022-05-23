@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentUpComingMovieBinding
 
 class UpComingMovieFragment : Fragment() {
     lateinit var binding: FragmentUpComingMovieBinding
-
+    val vModel: UpComingMovieViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,4 +27,13 @@ class UpComingMovieFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        var adapter = UpComingResultRecyclerAdapter()
+        binding.upcomingRecycler.adapter = adapter
+
+        vModel.upComingMovieList.observe(viewLifecycleOwner){
+            adapter.submitList(it)
+        }
+    }
 }

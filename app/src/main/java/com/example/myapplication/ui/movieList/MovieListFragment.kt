@@ -37,12 +37,12 @@ class MovieListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val adapter = MovieAdapter()
+        binding.movieRecyclerView.adapter = adapter
         binding.searchIcon.setOnClickListener {
             var action = MovieListFragmentDirections.actionMovieListFragmentToSearchResultFragment(binding.searchBox.text.toString())
             findNavController().navigate(action)
         }
         viewModel.movieList.observe(viewLifecycleOwner) {
-            binding.movieRecyclerView.adapter = adapter
             adapter.submitList(it)
 //            Glide.with(this).load(poster_path + it[0].poster_path).into(binding.moviePhoto)
         }

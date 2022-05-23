@@ -33,10 +33,6 @@ class SearchResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val adapter = SearchResultAdapter()
 
-//        vModel.searchedList.observe(viewLifecycleOwner){
-//            binding.searchRecyclerView.adapter = adapter
-//            adapter.submitList(it)
-//        }
 
         vModel.searchMovieList(args.searchWord).observe(viewLifecycleOwner){
             binding.searchRecyclerView.adapter = adapter
