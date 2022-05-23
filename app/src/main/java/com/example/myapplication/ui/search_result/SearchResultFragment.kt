@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.navArgs
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentSearchResultBinding
 
 class SearchResultFragment : Fragment() {
  lateinit var binding: FragmentSearchResultBinding
-
+    val args: SearchResultFragmentArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

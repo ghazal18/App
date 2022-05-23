@@ -17,7 +17,7 @@ enum class ApiStatus {
 class MovieListViewModel : ViewModel() {
     val status = MutableLiveData<ApiStatus>()
     val movieList = MutableLiveData<List<Movie>>()
-    val searchedList =  MutableLiveData<List<Movie>>()
+
 
     init {
         getMovie()
@@ -30,10 +30,5 @@ class MovieListViewModel : ViewModel() {
             movieList.value = list
         }
     }
-    fun searchMovie(query:String){
-        viewModelScope.launch {
-            val list = Container.movieRepository.searchMovie(query)
-            searchedList.value = list
-        }
-    }
+
 }
