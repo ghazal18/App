@@ -9,11 +9,16 @@ import com.example.myapplication.model.UpComingResult
 import kotlinx.coroutines.launch
 
 class UpComingMovieViewModel: ViewModel() {
-    val upComingMovieList = MutableLiveData<List<UpComingResult>>()
+    val upComingMovieListLD = MutableLiveData<List<UpComingResult>>()
+
+    init {
+        UpComingMovieList()
+    }
 
     fun UpComingMovieList(){
         viewModelScope.launch {
-            upComingMovieList.value = Container.movieRepository.upComingMovieList()
+            var list = Container.movieRepository.upComingMovieList()
+            upComingMovieListLD.value = list
         }
     }
 

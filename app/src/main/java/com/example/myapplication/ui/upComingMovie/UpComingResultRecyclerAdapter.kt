@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.databinding.UpComingListItemBinding
+import com.example.myapplication.model.Movie
 import com.example.myapplication.model.UpComingResult
 
 class UpComingResultRecyclerAdapter: ListAdapter<UpComingResult, UpComingResultRecyclerAdapter.ItemHolder>(UpcomingMovieDiffCallback) {
@@ -34,11 +35,11 @@ class UpComingResultRecyclerAdapter: ListAdapter<UpComingResult, UpComingResultR
 }
     object UpcomingMovieDiffCallback : DiffUtil.ItemCallback<UpComingResult>() {
 
-        override fun areItemsTheSame(oldItem: UpComingResult, newItem: UpComingResult): Boolean {
+        override fun areItemsTheSame(oldItem: UpComingResult, newItem:UpComingResult): Boolean {
             return oldItem == newItem
         }
 
-        override fun areContentsTheSame(oldItem:UpComingResult, newItem: UpComingResult): Boolean {
+        override fun areContentsTheSame(oldItem: UpComingResult, newItem: UpComingResult): Boolean {
             return oldItem.id == newItem.id
         }
 }

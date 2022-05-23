@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentUpComingMovieBinding
+import com.example.myapplication.ui.movieList.MovieListViewModel
 
 class UpComingMovieFragment : Fragment() {
     lateinit var binding: FragmentUpComingMovieBinding
@@ -32,7 +33,7 @@ class UpComingMovieFragment : Fragment() {
         var adapter = UpComingResultRecyclerAdapter()
         binding.upcomingRecycler.adapter = adapter
 
-        vModel.upComingMovieList.observe(viewLifecycleOwner){
+        vModel.upComingMovieListLD.observe(viewLifecycleOwner){
             adapter.submitList(it)
         }
     }

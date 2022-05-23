@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_movieListFragment_to_searchResultFragment"
             app:destination="@id/searchResultFragment" />
+        <action
+            android:id="@+id/action_movieListFragment_to_upComingMovieFragment"
+            app:destination="@id/upComingMovieFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchResultFragment"
@@ -21,4 +24,8 @@
             android:name="searchWord"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/upComingMovieFragment"
+        android:name="com.example.myapplication.ui.upComingMovie.UpComingMovieFragment"
+        android:label="UpComingMovieFragment" />
 </navigation>

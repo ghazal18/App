@@ -1,10 +1,8 @@
 package com.example.myapplication.ui.movieList
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -32,6 +30,7 @@ class MovieListFragment : Fragment() {
             R.layout.fragment_movie_list,container,false)
         binding.vModel = viewModel
         binding.lifecycleOwner = this.viewLifecycleOwner
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -48,7 +47,23 @@ class MovieListFragment : Fragment() {
         }
     }
 
-//    https://image.tmdb.org/p/w500//neMZH82Stu91d3iqvLdNQfqPPyl.jpg
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId){
+            R.id.upComingMovieList ->{
+            findNavController().navigate(R.id.action_movieListFragment_to_upComingMovieFragment)
+                true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
+    //    https://image.tmdb.org/p/w500//neMZH82Stu91d3iqvLdNQfqPPyl.jpg
 //    https://image.tmdb.org/t/p/w500/neMZH82Stu91d3iqvLdNQfqPPyl.jpg
 
 

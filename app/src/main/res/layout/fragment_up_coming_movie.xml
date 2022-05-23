@@ -24,6 +24,7 @@
         android:textSize="20sp"
         android:gravity="center"/>
     </androidx.cardview.widget.CardView>
+
     <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/upcomingRecycler"
     android:layout_width="match_parent"
