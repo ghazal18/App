@@ -12,15 +12,15 @@ import com.example.myapplication.R
 import com.example.myapplication.databinding.MovieListItemViewBinding
 import com.example.myapplication.model.Movie
 
-typealias WordClickHandler = (Movie) -> Unit
+typealias ClickHandler = (Movie) -> Unit
 
 
-class MovieAdapter() :
+class MovieAdapter(var movieClick: ClickHandler) :
     ListAdapter<Movie, MovieAdapter.ItemHolder>(MovieDiffCallback) {
 
     class ItemHolder(val binding: MovieListItemViewBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(movie: Movie) {
+        fun bind(movie: Movie,movieClick: ClickHandler) {
 
 
         }
@@ -40,7 +40,7 @@ class MovieAdapter() :
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         val movie = getItem(position)
         holder.binding.movie = movie
-        holder.bind(movie)
+        holder.bind(movie,movieClick)
     }
 }
 

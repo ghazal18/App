@@ -11,6 +11,7 @@ import com.example.myapplication.R
 import com.example.myapplication.data.network.ApiService
 import com.example.myapplication.data.network.poster_path
 import com.example.myapplication.databinding.FragmentMovieListBinding
+import com.example.myapplication.model.Movie
 
 
 class MovieListFragment : Fragment() {
@@ -35,7 +36,7 @@ class MovieListFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val adapter = MovieAdapter()
+        val adapter = MovieAdapter{movieClick(it)}
         binding.movieRecyclerView.adapter = adapter
         binding.searchIcon.setOnClickListener {
             var action = MovieListFragmentDirections.actionMovieListFragmentToSearchResultFragment(binding.searchBox.text.toString())
@@ -47,7 +48,10 @@ class MovieListFragment : Fragment() {
         }
     }
 
+    fun movieClick(movie:Movie){
+        var action =
 
+    }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu,menu)
