@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_movieListFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_movieListFragment_self"
+            app:destination="@id/movieListFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchResultFragment"
@@ -35,6 +38,17 @@
         android:id="@+id/detailFragment"
         android:name="com.example.myapplication.ui.movieDetail.DetailFragment"
         android:label="DetailFragment" >
+        <argument
+            android:name="movieId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_detailFragment_to_showVideoFragment"
+            app:destination="@id/showVideoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/showVideoFragment"
+        android:name="com.example.myapplication.ui.video_webview.ShowVideoFragment"
+        android:label="ShowVideoFragment" >
         <argument
             android:name="movieId"
             app:argType="integer" />

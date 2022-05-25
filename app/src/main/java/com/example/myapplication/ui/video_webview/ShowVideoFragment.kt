@@ -6,13 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentShowVideoBinding
 
 
 class ShowVideoFragment : Fragment() {
     lateinit var binding:FragmentShowVideoBinding
-
+    val vm: ShowVideoViewModel by viewModels()
+    val args: ShowVideoFragmentArgs  by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,5 +30,11 @@ class ShowVideoFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_show_video, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        vm.getVideo(args.movieId).observe(viewLifecycleOwner){
 
+        }
+
+    }
 }
