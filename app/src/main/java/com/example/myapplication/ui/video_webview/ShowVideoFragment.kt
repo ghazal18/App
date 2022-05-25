@@ -28,13 +28,13 @@ class ShowVideoFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_show_video,container,false)
-        return inflater.inflate(R.layout.fragment_show_video, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.webView.loadUrl("https://stackoverflow.com/questions/8803915/window-manager-bad-token-exception")
+//        binding.webView.loadUrl("https://stackoverflow.com/questions/8803915/window-manager-bad-token-exception")
         binding.webView.settings.javaScriptEnabled = true
         binding.webView.webViewClient = WebViewClient()
         binding.webView.canGoBack()
@@ -47,12 +47,12 @@ class ShowVideoFragment : Fragment() {
         })
 
 
-//        vm.getVideo(args.movieId).observe(viewLifecycleOwner){
-//            Toast.makeText(context, it[0].key, Toast.LENGTH_SHORT).show()
-//            binding.webView.loadUrl("https://stackoverflow.com/questions/8803915/window-manager-bad-token-exception")
-//            //YOUTUBE_KEY+ it[0].key
-//            //"https://www.youtube.com/watch?v=JG8tl0I63JU"
-//        }
+        vm.getVideo(args.movieId).observe(viewLifecycleOwner){
+            Toast.makeText(context, it[0].key, Toast.LENGTH_SHORT).show()
+            binding.webView.loadUrl(YOUTUBE_KEY+ it[0].key)
+            //YOUTUBE_KEY+ it[0].key
+            //"https://www.youtube.com/watch?v=JG8tl0I63JU"
+        }
 
     }
 }
