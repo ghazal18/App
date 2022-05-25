@@ -1,18 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+<data>
+    <variable
+        name="movie"
+        type="com.example.myapplication.model.MovieDetail" />
+</data>
 
-
-<FrameLayout
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.DetailFragment">
+    tools:context=".ui.movieDetail.DetailFragment"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/movieTitle"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:textSize="40sp"
+         android:text="@{movie.title}"/>
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/poster"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
 </layout>
