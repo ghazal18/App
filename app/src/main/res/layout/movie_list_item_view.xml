@@ -19,6 +19,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
+        android:id="@+id/movieListItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"

@@ -21,6 +21,9 @@ class MovieAdapter(var movieClick: ClickHandler) :
     class ItemHolder(val binding: MovieListItemViewBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: Movie,movieClick: ClickHandler) {
+            binding.movieListItem.setOnClickListener {
+                movieClick.invoke(movie)
+            }
 
 
         }
@@ -41,6 +44,7 @@ class MovieAdapter(var movieClick: ClickHandler) :
         val movie = getItem(position)
         holder.binding.movie = movie
         holder.bind(movie,movieClick)
+
     }
 }
 

@@ -2,6 +2,7 @@ package com.example.myapplication.ui.movieList
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
@@ -46,11 +47,14 @@ class MovieListFragment : Fragment() {
             adapter.submitList(it)
 //            Glide.with(this).load(poster_path + it[0].poster_path).into(binding.moviePhoto)
         }
+
     }
 
-    fun movieClick(movie:Movie){
-        var action =
+    fun movieClick(film:Movie){
 
+        var action = MovieListFragmentDirections.actionMovieListFragmentToDetailFragment(film.id)
+//        Toast.makeText(context, film.title, Toast.LENGTH_SHORT).show()
+        findNavController().navigate(action)
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
