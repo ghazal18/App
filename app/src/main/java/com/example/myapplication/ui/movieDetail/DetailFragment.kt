@@ -39,8 +39,11 @@ class DetailFragment : Fragment() {
 
         vm.getMovieDetail(args.movieId).observe(viewLifecycleOwner){
             Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
-            Glide.with(this).load(poster_path + it.poster_path).into(binding.poster)
-            binding.movieTitle.text = it.title
+            Glide.with(this).load(poster_path + it.poster_path).placeholder(R.drawable.loading).into(binding.poster)
+            binding.movieTitle.text = "Title: " + it.homepage
+            binding.releaseDate.text = "Release Date: "+ it.release_date
+            binding.overview.text = "Overview: "+ it.release_date
+            binding.homePageAddress.text = "Home Page Address: "+ it.homepage
         }
 
         binding.goToWebView.setOnClickListener {

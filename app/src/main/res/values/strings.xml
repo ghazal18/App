@@ -5,4 +5,5 @@
     <string name="search_here">Search Here</string>
     <string name="movie_list">Movie List:</string>
     <string name="up_coming_movie_list">UpComing Movie List:</string>
+    <string name="movie_info">Movie Info:</string>
 </resources>

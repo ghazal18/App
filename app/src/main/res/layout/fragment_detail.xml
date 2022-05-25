@@ -1,31 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout  xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 <data>
     <variable
         name="movie"
         type="com.example.myapplication.model.MovieDetail" />
 </data>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.movieDetail.DetailFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="15dp">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="15dp"
+        android:backgroundTint="#4DD0E1"
+        app:cardUseCompatPadding="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/movie_info"
+            android:textSize="20sp"
+            android:gravity="center"/>
+    </androidx.cardview.widget.CardView>
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/movieTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
-         android:text="hi"/>
+        android:textSize="20sp"
+         />
+    <TextView
+        android:id="@+id/releaseDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:id="@+id/homePageAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:id="@+id/overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        />
 
     <ImageView
         android:id="@+id/poster"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/movielist"/>
+        />
     <Button
         android:id="@+id/goToWebView"
         android:layout_width="match_parent"
@@ -33,4 +72,5 @@
         android:text="see youtube page"/>
 
 </LinearLayout>
+</ScrollView>
 </layout>
