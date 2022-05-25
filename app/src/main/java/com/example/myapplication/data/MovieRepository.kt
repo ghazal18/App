@@ -3,6 +3,7 @@ package com.example.myapplication.data
 import com.example.myapplication.model.Movie
 import com.example.myapplication.model.MovieDetail
 import com.example.myapplication.model.UpComingResult
+import com.example.myapplication.model.VideoResult
 
 class MovieRepository (val movieRemoteDataSource:MovieRemoteDataSource){
     
@@ -17,6 +18,9 @@ class MovieRepository (val movieRemoteDataSource:MovieRemoteDataSource){
     }
     suspend fun getMovieDetail(id:Int):MovieDetail{
         return movieRemoteDataSource.MovieDetail(id)
+    }
+    suspend fun getVideoOfMovie(id:Int):List<VideoResult>{
+        return movieRemoteDataSource.getVideoOfMovie(id)
     }
 
 

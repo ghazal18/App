@@ -12,6 +12,7 @@ import retrofit2.http.Query
 private const val BASE_URL = "https://api.themoviedb.org/3/"
 const val api_key = "8615e332ad100989dfaaba4d95fa88c7"
 const val poster_path ="https://image.tmdb.org/t/p/w500"
+const val YOUTUBE_KEY = "https://www.youtube.com/watch?v="
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -48,6 +49,12 @@ interface ApiService {
         @Query("page")page :Int = 1,
         @Query("api_key") apiKey :String = api_key
     ): UpComingMovieList
+
+    @GET("movie/{movie_id}/videos")
+    suspend fun  videoOfMovie(
+        @Path(value = "movie_id") movieId: Int,
+        @Query("api_key") apiKey :String = api_key
+    ): VideoOfMovie
 
 
 }

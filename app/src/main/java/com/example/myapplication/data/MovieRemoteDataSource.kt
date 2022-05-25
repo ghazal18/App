@@ -4,6 +4,7 @@ import com.example.myapplication.data.network.MovieApi
 import com.example.myapplication.model.Movie
 import com.example.myapplication.model.MovieDetail
 import com.example.myapplication.model.UpComingResult
+import com.example.myapplication.model.VideoResult
 
 class MovieRemoteDataSource {
 
@@ -18,6 +19,10 @@ class MovieRemoteDataSource {
     }
     suspend fun upComingMovies():List<UpComingResult>{
         return MovieApi.retrofitService.upComingMovies().results
+    }
+
+    suspend fun getVideoOfMovie(id:Int):List<VideoResult>{
+        return MovieApi.retrofitService.videoOfMovie(movieId = id).results
     }
 
 }
