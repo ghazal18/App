@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_movieListFragment_self"
             app:destination="@id/movieListFragment" />
+        <action
+            android:id="@+id/action_movieListFragment_to_showVideoFragment"
+            app:destination="@id/showVideoFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchResultFragment"

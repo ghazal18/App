@@ -52,7 +52,7 @@ class MovieListFragment : Fragment() {
 
     fun movieClick(film:Movie){
 
-        var action = MovieListFragmentDirections.actionMovieListFragmentToDetailFragment(film.id)
+        var action = MovieListFragmentDirections.actionMovieListFragmentToShowVideoFragment(film.id)
 //        Toast.makeText(context, film.title, Toast.LENGTH_SHORT).show()
         findNavController().navigate(action)
     }

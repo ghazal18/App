@@ -26,6 +26,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/movielist"/>
+    <Button
+        android:id="@+id/goToWebView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="see youtube page"/>
 
 </LinearLayout>
 </layout>

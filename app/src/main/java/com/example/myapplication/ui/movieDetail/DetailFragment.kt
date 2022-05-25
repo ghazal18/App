@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.myapplication.R
@@ -39,7 +40,13 @@ class DetailFragment : Fragment() {
         vm.getMovieDetail(args.movieId).observe(viewLifecycleOwner){
             Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
             Glide.with(this).load(poster_path + it.poster_path).into(binding.poster)
-//            binding.movieTitle.text = it.title
+            binding.movieTitle.text = it.title
+        }
+
+        binding.goToWebView.setOnClickListener {
+            Toast.makeText(context, "hi", Toast.LENGTH_SHORT).show()
+         var action = DetailFragmentDirections.actionDetailFragmentToShowVideoFragment(args.movieId)
+            findNavController().navigate(action)
         }
     }
 }
