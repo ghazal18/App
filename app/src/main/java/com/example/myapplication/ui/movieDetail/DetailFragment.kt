@@ -31,6 +31,7 @@ class DetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_detail,container,false)
+        binding.lifecycleOwner = this.viewLifecycleOwner
         return binding.root
     }
 
@@ -39,12 +40,19 @@ class DetailFragment : Fragment() {
 
         vm.getMovieDetail(args.movieId).observe(viewLifecycleOwner){
             Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
-            Glide.with(this).load(poster_path + it.poster_path).placeholder(R.drawable.loading).into(binding.poster)
+
+//            Glide.with(this)
+//                .load(poster_path + it.poster_path)
+//                .placeholder(R.drawable.loading)
+//                .into(binding.poster)
             binding.movieTitle.text = "Title: " + it.title
             binding.releaseDate.text = "Release Date: "+ it.release_date
             binding.overview.text = "Overview: "+ it.overview
             binding.homePageAddress.text = "Home Page Address: "+ it.homepage
+            binding.imageUrl= poster_path + it.poster_path
+//            binding.imageUrl= poster_path + vm.filmLD.value?.poster_path
         }
+
 
         binding.goToWebView.setOnClickListener {
             Toast.makeText(context, "hi", Toast.LENGTH_SHORT).show()

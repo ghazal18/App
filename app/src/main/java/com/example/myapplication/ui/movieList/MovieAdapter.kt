@@ -37,7 +37,6 @@ class MovieAdapter(var movieClick: ClickHandler) :
             parent,false
         )
         return ItemHolder(binding)
-
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {

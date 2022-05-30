@@ -21,7 +21,7 @@ class MovieRemoteDataSource {
         return MovieApi.retrofitService.upComingMovies().results
     }
 
-    suspend fun getVideoOfMovie(id:Int):List<VideoResult>{
+        suspend fun getVideoOfMovie(id:Int):List<VideoResult>{
         return MovieApi.retrofitService.videoOfMovie(movieId = id).results
     }
 

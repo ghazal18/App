@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:textSize="14sp"
-        android:text="@{movie.title+'('+ movie.release_date+ ')' + ':'+ ' '+ movie.overview}"/>
+        android:text="@{movie.title+'('+ movie.release_date+ ')' + ':'+' '+ movie.overview}"/>
 
 
 
