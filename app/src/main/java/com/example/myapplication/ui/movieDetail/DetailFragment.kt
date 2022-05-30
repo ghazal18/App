@@ -45,7 +45,7 @@ class DetailFragment : Fragment() {
 //                .load(poster_path + it.poster_path)
 //                .placeholder(R.drawable.loading)
 //                .into(binding.poster)
-            binding.movieTitle.text = "Title: " + it.title
+            binding.movieTitle.text = getString(R.string.title) + it.title
             binding.releaseDate.text = "Release Date: "+ it.release_date
             binding.overview.text = "Overview: "+ it.overview
             binding.homePageAddress.text = "Home Page Address: "+ it.homepage
@@ -55,7 +55,7 @@ class DetailFragment : Fragment() {
 
 
         binding.goToWebView.setOnClickListener {
-            Toast.makeText(context, "hi", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "show video", Toast.LENGTH_SHORT).show()
          var action = DetailFragmentDirections.actionDetailFragmentToShowVideoFragment(args.movieId)
             findNavController().navigate(action)
         }

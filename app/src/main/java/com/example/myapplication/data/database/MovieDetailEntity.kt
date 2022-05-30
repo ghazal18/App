@@ -1,8 +1,12 @@
-package com.example.myapplication.model
+package com.example.myapplication.data.database
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.example.myapplication.model.Genre
 
-
-data class MovieDetail(
+@Entity
+data class MovieDetailEntity (
+    @PrimaryKey(autoGenerate = true) val number:Int,
     val adult: Boolean,
     val backdrop_path: String,
     val belongs_to_collection: Any?,
@@ -25,4 +29,4 @@ data class MovieDetail(
     val video: Boolean,
     val vote_average: Double,
     val vote_count: Int
-)
+ )
