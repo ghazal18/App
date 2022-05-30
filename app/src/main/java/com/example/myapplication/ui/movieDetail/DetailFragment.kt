@@ -7,18 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.data.network.poster_path
 import com.example.myapplication.databinding.FragmentDetailBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class DetailFragment : Fragment() {
     lateinit var binding: FragmentDetailBinding
-    val vm : DetailViewModel by viewModels()
+    val vm : DetailViewModel by viewModel()
     val args: DetailFragmentArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +49,7 @@ class DetailFragment : Fragment() {
             binding.releaseDate.text = "Release Date: "+ it.release_date
             binding.overview.text = "Overview: "+ it.overview
             binding.homePageAddress.text = "Home Page Address: "+ it.homepage
-            binding.imageUrl= poster_path + it.poster_path
+            binding.imageUrl= it.poster_path
 //            binding.imageUrl= poster_path + vm.filmLD.value?.poster_path
         }
 

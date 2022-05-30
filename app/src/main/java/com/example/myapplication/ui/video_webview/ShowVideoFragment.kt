@@ -11,11 +11,12 @@ import androidx.navigation.fragment.navArgs
 import com.example.myapplication.R
 import com.example.myapplication.data.network.YOUTUBE_KEY
 import com.example.myapplication.databinding.FragmentShowVideoBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class ShowVideoFragment : Fragment() {
     lateinit var binding:FragmentShowVideoBinding
-    val vm: ShowVideoViewModel by viewModels()
+    val vm: ShowVideoViewModel by viewModel()
     val args: ShowVideoFragmentArgs  by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -10,10 +10,11 @@ import androidx.fragment.app.viewModels
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentUpComingMovieBinding
 import com.example.myapplication.ui.movieList.MovieListViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class UpComingMovieFragment : Fragment() {
     lateinit var binding: FragmentUpComingMovieBinding
-    val vModel: UpComingMovieViewModel by viewModels()
+    val vModel: UpComingMovieViewModel by viewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
