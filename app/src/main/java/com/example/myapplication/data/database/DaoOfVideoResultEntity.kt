@@ -14,6 +14,6 @@ interface DaoOfVideoResultEntity {
     suspend fun saveAllVideo(vararg videoList:VideoResultEntity)
 
     @Query("SELECT * fROM VideoResultEntity")
-    suspend fun getVideoList(): LiveData<List<VideoResultEntity>>
+  fun getVideoList(): LiveData<List<VideoResultEntity>>
 
 }

@@ -9,7 +9,7 @@ interface DaoOfMovieEntity {
     suspend fun insertAll(vararg MovieList: MovieEntity)
 
     @Query("SELECT * fROM MovieEntity")
-    suspend fun getMovieList(): LiveData<List<MovieEntity>>
+    fun getMovieList(): LiveData<List<MovieEntity>>
 
     @Update
     suspend fun updateMovieList(MovieList: List<MovieEntity>)

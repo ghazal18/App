@@ -7,7 +7,7 @@ import com.squareup.moshi.Json
 @Entity
 data class MovieEntity(
     @PrimaryKey(autoGenerate = true) val number:Int,
-    val genre_ids: List<Int>,
+//    val genre_ids: List<Int>,
 
     val id: Int,
 
