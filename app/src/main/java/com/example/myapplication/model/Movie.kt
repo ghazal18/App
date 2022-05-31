@@ -1,12 +1,16 @@
 package com.example.myapplication.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 
+@Entity
 data class Movie(
-    @Json(name = "genre_ids")
-    val genre_ids: List<Int>,
+//    @PrimaryKey(autoGenerate = true) val number:Int,
+//    @Json(name = "genre_ids")
+//    val genre_ids: List<Int>,
     @Json(name = "id")
-    val id: Int,
+    @PrimaryKey  val id: Int,
     @Json(name = "overview")
     val overview: String,
     @Json(name = "poster_path")

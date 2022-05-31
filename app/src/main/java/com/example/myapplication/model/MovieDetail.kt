@@ -1,15 +1,19 @@
 package com.example.myapplication.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
 
+@Entity
 data class MovieDetail(
+//    @PrimaryKey(autoGenerate = true) val number:Int,
     val adult: Boolean,
     val backdrop_path: String,
-    val belongs_to_collection: Any?,
+//    val belongs_to_collection: Any?,
     val budget: Int,
-    val genres: List<Genre>,
+//    val genres: List<Genre>,
     val homepage: String,
-    val id: Int,
+    @PrimaryKey val id: Int,
     val imdb_id: String,
     val original_language: String,
     val original_title: String,
