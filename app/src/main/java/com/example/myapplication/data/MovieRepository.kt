@@ -11,10 +11,19 @@ import com.example.myapplication.model.VideoResult
 class MovieRepository (val movieRemoteDataSource:MovieRemoteDataSource, val movieLocalDataSource: MovieLocalDataSource){
     
     suspend fun getMovie():List<Movie>{
-        movieLocalDataSource.insertAllMovie(movieRemoteDataSource.getMovie())
-        return movieRemoteDataSource.getMovie()
-
+        try {
+            if (movieLocalDataSource.getMovieListSize() == 0 ){
+                movieLocalDataSource.insertAllMovie(movieRemoteDataSource.getMovie())
+            }else{
+                movieLocalDataSource.updateMovieList(movieRemoteDataSource.getMovie())
+            }
+            return movieRemoteDataSource.getMovie()
+        }catch (ex:Exception){
+           return movieLocalDataSource.getMovieList()
+        }
     }
+
+
     suspend fun searchMovie(query:String):List<Movie>{
        try {
            if (movieLocalDataSource.getMovieListSize() == 0 ){
@@ -29,14 +38,28 @@ class MovieRepository (val movieRemoteDataSource:MovieRemoteDataSource, val movi
        }
 
     }
+
     suspend fun upComingMovieList():List<UpComingResult>{
-        return movieRemoteDataSource.upComingMovies()
+        try {
+            movieLocalDataSource.insertAllUpComingMovie(movieRemoteDataSource.upComingMovies())
+            return movieRemoteDataSource.upComingMovies()
+        }catch (ex:Exception){
+            return movieLocalDataSource.getUpComingMovieList()
+        }
     }
+
     suspend fun getMovieDetail(id:Int):MovieDetail{
-        return movieRemoteDataSource.MovieDetail(id)
+        try {
+                movieLocalDataSource.saveMovieDetail(movieRemoteDataSource.MovieDetail(id))
+
+            return movieRemoteDataSource.MovieDetail(id)
+        }catch (ex:Exception){
+            return movieLocalDataSource.getMovieDetail(id)
+        }
+
     }
     suspend fun getVideoOfMovie(id:Int):List<VideoResult>{
-        return movieRemoteDataSource.getVideoOfMovie(id)
+            return movieRemoteDataSource.getVideoOfMovie(id)
     }
 
 
