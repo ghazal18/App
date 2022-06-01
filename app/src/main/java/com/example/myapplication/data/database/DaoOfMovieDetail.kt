@@ -13,5 +13,5 @@ interface DaoOfMovieDetail {
     suspend fun getMovieDetail(id:Int): MovieDetail
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveMovieDetail(Movie: MovieDetail)
+    suspend fun saveMovieDetail(movie: MovieDetail)
 }

@@ -12,8 +12,8 @@ interface DaoOfUpComingResult {
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllUpComingMovie(vararg UpComingMovieList: UpComingResult)
+    suspend fun insertAllUpComingMovie(UpComingMovieList: List<UpComingResult>)
 
     @Query("SELECT * fROM UpComingResult")
-    fun getUpComingMovieList(): LiveData<List<UpComingResult>>
+    suspend fun getUpComingMovieList():List<UpComingResult>
 }
