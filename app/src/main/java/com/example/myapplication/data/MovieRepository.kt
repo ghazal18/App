@@ -9,6 +9,7 @@ class MovieRepository (val movieRemoteDataSource:MovieRemoteDataSource, val movi
     
     suspend fun getMovie():List<Movie>{
         return movieRemoteDataSource.getMovie()
+
     }
     suspend fun searchMovie(query:String):List<Movie>{
         return movieRemoteDataSource.searchMovie(query)

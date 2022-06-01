@@ -14,4 +14,7 @@ interface DaoOfMovie {
 
     @Update
     suspend fun updateMovieList(MovieList: List<Movie>)
+
+    @Query("SELECT COUNT(id) fROM Movie")
+    suspend fun getMovieListSize(): Int
 }

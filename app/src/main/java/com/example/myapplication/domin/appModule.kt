@@ -3,6 +3,7 @@ package com.example.myapplication.domin
 import com.example.myapplication.data.MovieLocalDataSource
 import com.example.myapplication.data.MovieRemoteDataSource
 import com.example.myapplication.data.MovieRepository
+import com.example.myapplication.data.database.MovieDatabase
 import com.example.myapplication.data.network.ApiService
 import com.example.myapplication.ui.movieDetail.DetailViewModel
 import com.example.myapplication.ui.movieList.MovieListViewModel
@@ -13,6 +14,7 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -23,7 +25,7 @@ import kotlin.math.sin
 val appModule = module {
     single { MovieRepository(get(),get())}
     single { MovieRemoteDataSource(get())}
-    single {MovieLocalDataSource()}
+    single {MovieLocalDataSource(get(),get(),get(),)}
     single {
         val retrofit = get() as Retrofit
         val apiService = retrofit.create(ApiService::class.java)
@@ -49,4 +51,9 @@ val appModule = module {
     viewModel { UpComingMovieViewModel(get()) }
     viewModel { SearchResultViewModel(get()) }
     viewModel { ShowVideoViewModel(get()) }
+
+    single { MovieDatabase.getDatabase(androidContext()) }
+    single { get<MovieDatabase>().MovieDao() }
+    single { get<MovieDatabase>().MovieDetailDao() }
+    single { get<MovieDatabase>().UpComingResultDao() }
 }
