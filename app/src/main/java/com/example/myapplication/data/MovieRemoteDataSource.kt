@@ -23,7 +23,7 @@ class MovieRemoteDataSource @Inject constructor (private val apiService: ApiServ
         return apiService.upComingMovies().results
     }
 
-        suspend fun getVideoOfMovie(id:Int):List<VideoResult>{
+    suspend fun getVideoOfMovie(id:Int):List<VideoResult>{
         return apiService.videoOfMovie(movieId = id).results
     }
 
