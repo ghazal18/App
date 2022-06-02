@@ -19,36 +19,30 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
-
-@Module
 @InstallIn(SingletonComponent::class)
+@Module
 object DbModule{
 
     @Singleton
     @Provides
     fun provideDatabase(@ApplicationContext context: Context):MovieDatabase{
-        return Room.databaseBuilder(context.applicationContext,
+        return Room.databaseBuilder(context,
             MovieDatabase::class.java,DatabaseName)
             .allowMainThreadQueries().build()
     }
 
+
     @Singleton
     @Provides
-    fun provideApiService(): ApiService {
+    fun getApiService(): ApiService {
         val moshi = Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
             .build()
-
-        val logger = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BASIC }
-        val client = OkHttpClient.Builder().addInterceptor(logger).build()
-
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://6086fa75a3b9c200173b758e.mockapi.io/api/v1/")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .client(client)
+            .baseUrl("https://api.themoviedb.org/3/")
             .build()
         val movieApiService = retrofit.create(ApiService::class.java)
-
         return movieApiService
     }
 }
