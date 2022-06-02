@@ -7,8 +7,10 @@ import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.MovieRepository
 import com.example.myapplication.domin.Container
 import com.example.myapplication.model.Movie
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.lang.Exception
+import javax.inject.Inject
 
 
 enum class ApiStatus {
@@ -16,8 +18,8 @@ enum class ApiStatus {
     Done,
     Error
 }
-
-class MovieListViewModel(val repo : MovieRepository) : ViewModel() {
+@HiltViewModel
+class MovieListViewModel @Inject constructor(private val repo : MovieRepository) : ViewModel() {
     val status = MutableLiveData<ApiStatus>()
     val movieList = MutableLiveData<List<Movie>>()
 

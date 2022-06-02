@@ -13,9 +13,10 @@ import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.data.network.poster_path
 import com.example.myapplication.databinding.FragmentDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
+@AndroidEntryPoint
 class DetailFragment : Fragment() {
     lateinit var binding: FragmentDetailBinding
     val vm : DetailViewModel by viewModel()

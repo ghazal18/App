@@ -7,9 +7,12 @@ import com.example.myapplication.model.Movie
 import com.example.myapplication.model.MovieDetail
 import com.example.myapplication.model.UpComingResult
 import com.example.myapplication.model.VideoResult
+import javax.inject.Inject
 
-class MovieRepository (val movieRemoteDataSource:MovieRemoteDataSource, val movieLocalDataSource: MovieLocalDataSource){
-    
+class MovieRepository @Inject constructor(private val movieRemoteDataSource:MovieRemoteDataSource,private val movieLocalDataSource: MovieLocalDataSource){
+
+
+
     suspend fun getMovie():List<Movie>{
         try {
             if (movieLocalDataSource.getMovieListSize() == 0 ){

@@ -8,11 +8,14 @@ import androidx.lifecycle.viewModelScope
 import com.example.myapplication.data.MovieRepository
 import com.example.myapplication.domin.Container
 import com.example.myapplication.model.MovieDetail
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.lang.Exception
+import javax.inject.Inject
 import kotlin.math.log
 
-class DetailViewModel (val repo : MovieRepository) :ViewModel() {
+@HiltViewModel
+class DetailViewModel @Inject constructor(private val repo : MovieRepository) :ViewModel() {
     var filmLD =  MutableLiveData<MovieDetail>()
 //
 //    init {

@@ -7,9 +7,12 @@ import com.example.myapplication.data.MovieRepository
 import com.example.myapplication.domin.Container
 import com.example.myapplication.model.Movie
 import com.example.myapplication.model.UpComingResult
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class UpComingMovieViewModel(val repo : MovieRepository): ViewModel() {
+@HiltViewModel
+class UpComingMovieViewModel @Inject constructor(private val repo : MovieRepository): ViewModel() {
     val upComingMovieListLD = MutableLiveData<List<UpComingResult>>()
 
     init {

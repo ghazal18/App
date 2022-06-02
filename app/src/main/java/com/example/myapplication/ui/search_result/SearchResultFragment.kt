@@ -10,11 +10,13 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.myapplication.R
 import com.example.myapplication.databinding.FragmentSearchResultBinding
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class SearchResultFragment : Fragment() {
     lateinit var binding: FragmentSearchResultBinding
-    val vModel: SearchResultViewModel by viewModel()
+    val vModel: SearchResultViewModel by viewModels()
     val args: SearchResultFragmentArgs by navArgs()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

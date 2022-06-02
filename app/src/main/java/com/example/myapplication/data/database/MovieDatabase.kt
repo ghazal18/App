@@ -15,16 +15,17 @@ abstract class MovieDatabase: RoomDatabase() {
     abstract fun UpComingResultDao(): DaoOfUpComingResult
 
     companion object{
-        var     INSTANCE: MovieDatabase? = null
-        fun getDatabase(context: Context): MovieDatabase?{
-            if (INSTANCE == null){
-                synchronized(MovieDatabase::class){
-                    INSTANCE = Room.databaseBuilder(context.applicationContext,
-                        MovieDatabase::class.java,"myDb")
-                        .allowMainThreadQueries().build()
-                }
-            }
-            return INSTANCE
-        }
+        const val DatabaseName = "myDb"
+//        var     INSTANCE: MovieDatabase? = null
+//        fun getDatabase(context: Context): MovieDatabase?{
+//            if (INSTANCE == null){
+//                synchronized(MovieDatabase::class){
+//                    INSTANCE = Room.databaseBuilder(context.applicationContext,
+//                        MovieDatabase::class.java,"myDb")
+//                        .allowMainThreadQueries().build()
+//                }
+//            }
+//            return INSTANCE
+//        }
     }
 }

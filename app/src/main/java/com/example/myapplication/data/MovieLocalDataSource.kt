@@ -4,42 +4,46 @@ import androidx.lifecycle.LiveData
 import com.example.myapplication.data.database.DaoOfMovie
 import com.example.myapplication.data.database.DaoOfMovieDetail
 import com.example.myapplication.data.database.DaoOfUpComingResult
+import com.example.myapplication.data.database.MovieDatabase
 import com.example.myapplication.model.Movie
 import com.example.myapplication.model.MovieDetail
 import com.example.myapplication.model.UpComingResult
+import javax.inject.Inject
 
-class MovieLocalDataSource(val movieDao: DaoOfMovie,val movieDetailDao: DaoOfMovieDetail, val upComingResultDao: DaoOfUpComingResult ) {
+class MovieLocalDataSource @Inject constructor (private val database: MovieDatabase ) {
+
 
         suspend fun insertAllMovie(movieList: List<Movie>){
-                movieDao.insertAll(movieList)
+                database.MovieDao().insertAll(movieList)
+//                movieDao.insertAll(movieList)
         }
 
         suspend fun getMovieList(): List<Movie>{
-                return movieDao.getMovieList()
+                return database.MovieDao().getMovieList()
         }
 
         suspend fun updateMovieList(movieList: List<Movie>){
-                movieDao.updateMovieList(movieList)
+                database.MovieDao().updateMovieList(movieList)
         }
 
         suspend fun getMovieListSize():Int{
-               return movieDao.getMovieListSize()
+               return database.MovieDao().getMovieListSize()
         }
 
         suspend fun getMovieDetail(id:Int): MovieDetail{
-                return movieDetailDao.getMovieDetail(id)
+                return database.MovieDetailDao().getMovieDetail(id)
         }
 
         suspend fun saveMovieDetail(movie: MovieDetail){
-                movieDetailDao.saveMovieDetail(movie)
+                database.MovieDetailDao().saveMovieDetail(movie)
         }
 
         suspend fun insertAllUpComingMovie(upComingMovieList: List<UpComingResult>){
-                upComingResultDao.insertAllUpComingMovie(upComingMovieList)
+                database.UpComingResultDao().insertAllUpComingMovie(upComingMovieList)
         }
 
         suspend fun getUpComingMovieList():List<UpComingResult>{
-                return upComingResultDao.getUpComingMovieList()
+                return  database.UpComingResultDao().getUpComingMovieList()
         }
 
 

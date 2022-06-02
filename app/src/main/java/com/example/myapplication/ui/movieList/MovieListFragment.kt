@@ -13,12 +13,13 @@ import com.example.myapplication.data.network.ApiService
 import com.example.myapplication.data.network.poster_path
 import com.example.myapplication.databinding.FragmentMovieListBinding
 import com.example.myapplication.model.Movie
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class MovieListFragment : Fragment() {
     lateinit var binding: FragmentMovieListBinding
-    val viewModel : MovieListViewModel by viewModel()
+    val viewModel : MovieListViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
