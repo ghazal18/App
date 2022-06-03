@@ -39,12 +39,6 @@
             android:src="@drawable/ic_baseline_search_24" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/moviePhoto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:src="@drawable/movielist"/>
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
@@ -58,7 +52,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:gravity="center"
-            app:setDate="@{`tayyebe`}"/>
+            android:text="@string/movie_list"/>
     </androidx.cardview.widget.CardView>
 
 
@@ -66,7 +60,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/movieRecyclerView"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="3"
         android:layout_weight="1"/>
 
 </LinearLayout>

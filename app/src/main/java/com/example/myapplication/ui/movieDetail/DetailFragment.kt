@@ -45,12 +45,14 @@ class DetailFragment : Fragment() {
 //                .load(poster_path + it.poster_path)
 //                .placeholder(R.drawable.loading)
 //                .into(binding.poster)
-            binding.movieTitle.text = getString(R.string.title) + it.title
-            binding.releaseDate.text = "Release Date: "+ it.release_date
-            binding.overview.text = "Overview: "+ it.overview
-            binding.homePageAddress.text = "Home Page Address: "+ it.homepage
+//            binding.movieTitle.text = getString(R.string.title) + it.title
+//            binding.releaseDate.text = "Release Date: "+ it.release_date
+//            binding.overview.text = "Overview: "+ it.overview
+//            binding.homePageAddress.text = "Home Page Address: "+ it.homepage
             binding.imageUrl= it.poster_path
 //            binding.imageUrl= poster_path + vm.filmLD.value?.poster_path
+            binding.movie = it
+
         }
 
 

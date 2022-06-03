@@ -41,6 +41,9 @@ class MovieLocalDataSource(val movieDao: DaoOfMovie,val movieDetailDao: DaoOfMov
         suspend fun getUpComingMovieList():List<UpComingResult>{
                 return upComingResultDao.getUpComingMovieList()
         }
+        suspend fun search(word:String):List<Movie>{
+                return movieDao.search(word)
+        }
 
 
 }

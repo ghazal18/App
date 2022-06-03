@@ -18,4 +18,8 @@ interface DaoOfMovie {
 
     @Query("SELECT COUNT(id) fROM Movie")
     suspend fun getMovieListSize(): Int
+
+//    @Query("SELECT * FROM Movie WHERE Movie.title LIKE '%' || :word || '%'")
+    @Query("SELECT * FROM Movie WHERE Movie.title LIKE :word")
+    suspend fun search(word:String): List<Movie>
 }

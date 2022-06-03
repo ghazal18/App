@@ -23,6 +23,9 @@ class MovieRepository (val movieRemoteDataSource:MovieRemoteDataSource, val movi
         }
     }
 
+    suspend fun search(word:String):List<Movie>{
+        return movieLocalDataSource.search(word)
+    }
 
     suspend fun searchMovie(query:String):List<Movie>?{
 //       try {
@@ -36,7 +39,7 @@ class MovieRepository (val movieRemoteDataSource:MovieRemoteDataSource, val movi
 //       } catch (ex:Exception){
 //           return movieLocalDataSource.getMovieList()
 //       }
-        return movieRemoteDataSource.searchMovie(query).data
+            return movieRemoteDataSource.searchMovie(query).data
     }
 
     suspend fun upComingMovieList():List<UpComingResult>{

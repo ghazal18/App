@@ -14,10 +14,15 @@ class SearchResultViewModel(val repo : MovieRepository): ViewModel(){
 
     fun searchMovieList(query:String):LiveData<List<Movie>>{
         viewModelScope.launch {
-            val list = repo.searchMovie(query)
-
-            searchedList.value = list
+            var list = repo.searchMovie(query)
+            if (list == null){
+                searchedList.value = repo.search("%"+query + "%")
+            }else{
+                searchedList.value = list
+            }
         }
         return searchedList
     }
+
+
 }

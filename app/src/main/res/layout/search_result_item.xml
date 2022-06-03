@@ -1,20 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
             name="movie"
             type="com.example.myapplication.model.Movie" />
+        <variable
+            name="imageUrl"
+            type="String"/>
     </data>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:textSize="14sp"
-        android:text="@{movie.title + ':'+ ' '+movie.overview}"/>
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_margin="5dp">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/poster"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            app:layout_constraintBottom_toTopOf="@+id/movieListItem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:loadImage="@{imageUrl}"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/movieListItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textSize="10sp"
+            android:text="@{movie.title}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/poster" />
+
+
+    </LinearLayout>
+
 </layout>

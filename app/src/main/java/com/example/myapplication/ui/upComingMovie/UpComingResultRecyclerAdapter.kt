@@ -30,6 +30,7 @@ class UpComingResultRecyclerAdapter: ListAdapter<UpComingResult, UpComingResultR
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         val movie = getItem(position)
         holder.binding.movie = movie
+        holder.binding.imageUrl = getItem(position).poster_path
 
     }
 }
