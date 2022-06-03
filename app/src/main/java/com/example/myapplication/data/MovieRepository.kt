@@ -24,19 +24,19 @@ class MovieRepository (val movieRemoteDataSource:MovieRemoteDataSource, val movi
     }
 
 
-    suspend fun searchMovie(query:String):List<Movie>{
-       try {
-           if (movieLocalDataSource.getMovieListSize() == 0 ){
-               movieLocalDataSource.insertAllMovie(movieRemoteDataSource.searchMovie(query))
-           }else{
-               movieLocalDataSource.updateMovieList(movieRemoteDataSource.searchMovie(query))
-           }
-
-           return movieRemoteDataSource.searchMovie(query)
-       } catch (ex:Exception){
-           return movieLocalDataSource.getMovieList()
-       }
-
+    suspend fun searchMovie(query:String):List<Movie>?{
+//       try {
+//           if (movieLocalDataSource.getMovieListSize() == 0 ){
+//               movieLocalDataSource.insertAllMovie(movieRemoteDataSource.searchMovie(query).data!!)
+//           }else{
+//               movieLocalDataSource.updateMovieList(movieRemoteDataSource.searchMovie(query).data!!)
+//           }
+//
+//           return movieRemoteDataSource.searchMovie(query).data!!
+//       } catch (ex:Exception){
+//           return movieLocalDataSource.getMovieList()
+//       }
+        return movieRemoteDataSource.searchMovie(query).data
     }
 
     suspend fun upComingMovieList():List<UpComingResult>{

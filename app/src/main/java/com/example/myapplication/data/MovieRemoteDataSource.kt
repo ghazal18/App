@@ -2,18 +2,37 @@ package com.example.myapplication.data
 
 import com.example.myapplication.data.network.ApiService
 import com.example.myapplication.data.network.MovieApi
-import com.example.myapplication.model.Movie
-import com.example.myapplication.model.MovieDetail
-import com.example.myapplication.model.UpComingResult
-import com.example.myapplication.model.VideoResult
+import com.example.myapplication.domin.Resource
+import com.example.myapplication.domin.Status
+import com.example.myapplication.model.*
+import retrofit2.Response
+import java.lang.Exception
 
 class MovieRemoteDataSource (val apiService: ApiService){
 
     suspend fun getMovie():List<Movie>{
         return apiService.getMovies().results
     }
-    suspend fun searchMovie(query:String):List<Movie>{
-        return apiService.searchMovie(query=query).results
+    suspend fun searchMovie(query:String):Resource<List<Movie>>{
+        var result = Resource<List<Movie>>(Status.LOADING, null)
+
+        try {
+            var response = apiService.searchMovie(query = query)
+            if (response.isSuccessful){
+                //TODO
+                result.data = response.body()?.results as List<Movie>
+                result.status = Status.SUCCESS
+
+            }else
+                return Resource(Status.ERROR, null, response.message())
+        }
+        catch (ex: Exception){
+            return Resource(Status.ERROR, null, ex.message)
+        }
+        return result
+
+
+//        return apiService.searchMovie(query=query).results
     }
     suspend fun MovieDetail(id:Int):MovieDetail{
         return apiService.MovieDetail(movieId = id)

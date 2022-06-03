@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -38,6 +39,9 @@ class SearchResultFragment : Fragment() {
         vModel.searchMovieList(args.searchWord).observe(viewLifecycleOwner){
             binding.searchRecyclerView.adapter = adapter
             adapter.submitList(it)
+            if (it == null){
+                Toast.makeText(context, "there is no such movie or no connection", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
