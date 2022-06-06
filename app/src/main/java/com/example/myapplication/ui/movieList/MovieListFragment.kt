@@ -29,8 +29,7 @@ class MovieListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater,
-            R.layout.fragment_movie_list,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_movie_list,container,false)
         binding.vModel = viewModel
         binding.lifecycleOwner = this.viewLifecycleOwner
         setHasOptionsMenu(true)
