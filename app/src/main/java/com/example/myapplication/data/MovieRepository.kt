@@ -10,14 +10,14 @@ import com.example.myapplication.model.VideoResult
 
 class MovieRepository (val movieRemoteDataSource:MovieRemoteDataSource, val movieLocalDataSource: MovieLocalDataSource){
     
-    suspend fun getMovie():List<Movie>{
+    suspend fun getMovie(page: Int):List<Movie>{
         try {
             if (movieLocalDataSource.getMovieListSize() == 0 ){
-                movieLocalDataSource.insertAllMovie(movieRemoteDataSource.getMovie())
+                movieLocalDataSource.insertAllMovie(movieRemoteDataSource.getMovie(page))
             }else{
-                movieLocalDataSource.updateMovieList(movieRemoteDataSource.getMovie())
+                movieLocalDataSource.updateMovieList(movieRemoteDataSource.getMovie(page))
             }
-            return movieRemoteDataSource.getMovie()
+            return movieRemoteDataSource.getMovie(page)
         }catch (ex:Exception){
            return movieLocalDataSource.getMovieList()
         }

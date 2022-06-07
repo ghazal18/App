@@ -10,8 +10,8 @@ import java.lang.Exception
 
 class MovieRemoteDataSource (val apiService: ApiService){
 
-    suspend fun getMovie():List<Movie>{
-        return apiService.getMovies().results
+    suspend fun getMovie(page: Int):List<Movie>{
+        return apiService.getMovies(page).results
     }
     suspend fun searchMovie(query:String):Resource<List<Movie>>{
         var result = Resource<List<Movie>>(Status.LOADING, null)

@@ -23,16 +23,23 @@ class MovieListViewModel(val repo : MovieRepository) : ViewModel() {
 
 
     init {
-        getMovie()
+      getMovie()
+
     }
 
+
+
     fun getMovie() {
+        var list = listOf<Movie>()
         status.value = ApiStatus.Loading
         viewModelScope.launch {
             try {
-                val list = repo.getMovie()
+                for (i in 0 .. 15){
+                   list += repo.getMovie(i)
+                }
                 movieList.value = list
             }catch (e:Exception){
+                status.value = ApiStatus.Error
                 Log.d("ERROR","not loaded")
             }
 
